@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Roshan's Educational Loan</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Segoe UI',Arial,sans-serif;background:#eef2f7;min-height:100vh;display:flex;flex-direction:column;}
+    header{background:linear-gradient(135deg,#1a365d,#2b6cb0);color:#fff;text-align:center;padding:2rem 1rem 1.6rem;}
+    header h1{font-size:1.8rem;letter-spacing:.5px;}
+    header p{font-size:.92rem;margin-top:.4rem;opacity:.85;}
+    .center{flex:1;display:flex;align-items:center;justify-content:center;padding:2rem 1rem;}
+    .choices{display:flex;gap:1.5rem;flex-wrap:wrap;justify-content:center;}
+    .choice{background:#fff;border-radius:16px;box-shadow:0 6px 24px rgba(0,0,0,.1);padding:2.5rem 2rem;text-align:center;width:220px;cursor:pointer;transition:.2s;text-decoration:none;color:inherit;border:2px solid transparent;}
+    .choice:hover{transform:translateY(-4px);box-shadow:0 10px 30px rgba(0,0,0,.15);}
+    .choice.admin:hover{border-color:#2b6cb0;}
+    .choice.guest:hover{border-color:#38a169;}
+    .choice .icon{font-size:3rem;margin-bottom:1rem;}
+    .choice h2{font-size:1.15rem;color:#2d3748;margin-bottom:.4rem;}
+    .choice p{font-size:.82rem;color:#718096;}
+    .choice.admin .badge{background:#ebf8ff;color:#2b6cb0;}
+    .choice.guest .badge{background:#f0fff4;color:#276749;}
+    .badge{display:inline-block;margin-top:.8rem;padding:.25rem .8rem;border-radius:99px;font-size:.75rem;font-weight:700;}
+    @media(max-width:600px){
+      header h1{font-size:1.3rem;}
+      header p{font-size:.8rem;}
+      .choices{flex-direction:column;align-items:center;}
+      .choice{width:100%;max-width:320px;padding:1.8rem 1.5rem;}
+    }
+  </style>
+</head>
+<body>
+<header>
+  <h1>📚 Roshan's Educational Loan</h1>
+  <p>Loan of Nrs 3,50,000 &nbsp;|&nbsp; Interest: Rs 1,000 per Rs 50,000</p>
+  <p style="margin-top:.4rem;opacity:.9;font-size:.85rem;">📅 Loan Start: <strong>January 1, 2026</strong> &nbsp;|&nbsp; 🗓 Today: <strong id="hdr-today"></strong></p>
+  <script>document.getElementById('hdr-today').textContent=new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});</script>
+</header>
+<div class="center">
+  <div class="choices">
+    <a href="admin.html" class="choice admin">
+      <div class="icon">🔐</div>
+      <h2>Admin</h2>
+      <p>Record payments, manage history, full control</p>
+      <span class="badge">Password Protected</span>
+    </a>
+    <a href="guest.html" class="choice guest">
+      <div class="icon">👁️</div>
+      <h2>Guest / Viewer</h2>
+      <p>View loan status, payment history & schedule</p>
+      <span class="badge">Read Only</span>
+    </a>
+  </div>
+</div>
+</body>
+</html>
